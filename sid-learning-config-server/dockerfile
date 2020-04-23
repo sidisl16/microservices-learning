@@ -1,0 +1,6 @@
+FROM openjdk:8-alpine
+VOLUME /tmp
+COPY UnlimitedJCEPolicyJDK8/* /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/
+COPY apiEncryptionKey.jks apiEncryptionKey.jks
+COPY target/sid-learning-config-server-0.0.1-SNAPSHOT.jar config-server.jar
+ENTRYPOINT ["java","-jar","config-server.jar"]
